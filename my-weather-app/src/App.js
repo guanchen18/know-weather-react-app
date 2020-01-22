@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
+import Weather from './components/Weather';
 
 
 class App extends Component {
@@ -40,6 +41,11 @@ class App extends Component {
       <div>
         <h1>Hello, world!</h1>
         <SearchBar handleClick={this.getWeather}/>
+        <Weather 
+          city = {this.state.city}
+          country = {this.state.country}
+          temperature = {this.state.temperature}
+        />
       </div>
     )
   }
