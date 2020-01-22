@@ -45,6 +45,7 @@ class App extends Component {
           city = {this.state.city}
           country = {this.state.country}
           temperature = {this.state.temperature}
+          description = {this.state.description}
         />
       </div>
     )
