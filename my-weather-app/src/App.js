@@ -20,6 +20,20 @@ class App extends Component {
     // const api_call = await fetch(`api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${Api_Key}`);
     const response = await api_call.json();
     console.log(response);
+    if(city && country){
+      this.setState({
+        temperature: response.main.temp,
+        city: response.name,
+        country: response.sys.country,
+        humidity: response.main.humidity,
+        description: response.weather[0].description,
+        error: ""
+      })
+    } else {
+      this.setState({
+        error: "Please put correct names:("
+      })
+    }
   }
   render(){
     return (
