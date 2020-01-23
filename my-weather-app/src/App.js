@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
 import Weather from './components/Weather';
+import Header from './components/Header/Header';
+import Icon from './elements/Icons/Icon';
+
 
 
 class App extends Component {
   state = {
+    searchBarInput: '',
     temperature: null,
     city: '',
     country: '',
     humidity: null,
-    description: null,
-    error: null
+    description: 'Clear',
+    error: null,
+    show: false
+  }
+  searchBarHandler = (e) => {
+    this.setState({
+      searchBarInput: e.target.value
+    })
+  }
+  showUpdate = () => {
+    this.setState({
+      show: true
+    })
   }
   getWeather = async (e) => {
     const city = e.target.elements.city.value;
@@ -27,8 +42,8 @@ class App extends Component {
         city: response.name,
         country: response.sys.country,
         humidity: response.main.humidity,
-        description: response.weather[0].description,
-        error: ""
+        description: response.weather[0].main,
+        error: "",
       })
     } else {
       this.setState({
@@ -39,15 +54,17 @@ class App extends Component {
   render(){
     return (
       <div>
-        <h1>Hello, world!</h1>
-        <SearchBar handleClick={this.getWeather}/>
+      <Header />
+        <SearchBar handleClick={this.getWeather} showUpdate={this.showUpdate}/>
         <Weather 
           city = {this.state.city}
           country = {this.state.country}
           temperature = {this.state.temperature}
           description = {this.state.description}
-        />
-      </div>
+          type = {this.state.description}
+          show = {this.state.show}
+          />
+      </div>  
     )
   }
 }
