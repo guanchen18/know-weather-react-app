@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import searchbar from './SearchBar.module.css';
+import inputfield from '../elements/InputField.module.css';
+
 
 class SearchBar extends Component {
 
     render (){
         return (
-            <form onSubmit={this.props.handleClick}> 
-                <input type="text" name="city" placeholder="city name"></input>
-                <input type="text" name="country" placeholder="country name"></input>
-                <button>SET</button>
-            </form>
+            <div className={searchbar.SearchBarWrapper}>
+                <form onSubmit={this.props.handleClick}> 
+                    <div className={inputfield.InputFieldWrapper} >
+                        <label type="text">Location</label>
+                        <input type="text" name="city" placeholder="Enter a city"></input>
+                        <input type="text" name="country" placeholder="Enter a country"></input>
+                        <button position="onForm" name="searchSubmit" type="submit">SET</button>
+                    </div>
+                </form>
+            </div>
         )
     }
 }
