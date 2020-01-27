@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
 import Weather from './components/Weather';
 import Header from './components/Header/Header';
-import Icon from './elements/Icons/Icon';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -64,6 +64,7 @@ class App extends Component {
           type = {this.state.description}
           show = {this.state.show}
           />
+      <Footer />
       </div>  
     )
   }
