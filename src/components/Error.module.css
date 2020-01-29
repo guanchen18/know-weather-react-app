@@ -1,0 +1,16 @@
+.ErrorWrapper {
+    color: #333333;
+    font-size: 1.5rem;
+    letter-spacing: +.5px;
+    margin: .5rem 0;
+    position: absolute;
+    height: 50px;
+    top: 50%;
+    left: 40%;
+}
+
+@media only screen and (min-width:600px) {
+    .Header {
+        justify-content: center;
+    }
+}

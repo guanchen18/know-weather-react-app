@@ -6,6 +6,7 @@ import date from './Date.module.css';
 import description from './Description.module.css';
 import Icon from '../elements/Icons/Icon';
 import location from './Location.module.css';
+import errorclass from './Error.module.css';
 
 const today = new Date();
 
@@ -13,8 +14,9 @@ class Weather extends Component {
 
     render () {
         const show = this.props.show;
+        const error = this.props.error;
         // console.log(show)
-        if (show === true) {
+        if (show === true && error === "") {
             return (
                 <div className={weather.WeatherDetailsWrappe}>
 
@@ -24,25 +26,29 @@ class Weather extends Component {
 
                     <div className={weather.WeatherDataWrapper}>
 
-                    <div className={temperature.TemperatureWrapper}>
-                        <span>{Math.round(this.props.temperature)}</span><span className={temperature.TemperatureSymbol}>°</span>
-                    </div>  
+                        <div className={temperature.TemperatureWrapper}>
+                            <span>{Math.round(this.props.temperature)}</span><span className={temperature.TemperatureSymbol}>°</span>
+                        </div>  
 
-                    <div className={description.DescriptionWrapper}>
-                        {this.props.description}
-                    </div>
+                        <div className={description.DescriptionWrapper}>
+                            {this.props.description}
+                        </div>
 
-                    <div className={date.DateWrapper}><span>{dateformat(today, "dddd, mmmm dd")} </span></div>
-                    
-                    <div className={location.LocationWrapper}>
-                        <span>{this.props.city} {this.props.country}</span>
-                    </div> 
+                        <div className={date.DateWrapper}><span>{dateformat(today, "dddd, mmmm dd")} </span></div>
+                        
+                        <div className={location.LocationWrapper}>
+                            <span>{this.props.city} {this.props.country}</span>
+                        </div> 
+
                     </div>
 
                 </div>
 
             )
-        } else {return <p></p>}
+        } else {return (                   
+        <div>
+            <span className={errorclass.ErrorWrapper}>{this.props.error}</span>
+        </div>)}
     }
 }
 
