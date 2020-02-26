@@ -7,7 +7,7 @@
     bottom:0;
     width:100%;
     height:2.5rem;  
-    background: crimson;
+    background:rgb(42, 198, 209);
     align-items: center;
     justify-content: flex-end;
     -webkit-transition: background-color .5s ease-out;
@@ -16,17 +16,18 @@
  }
  .Logo {
     width: auto;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 100%;
     text-transform: uppercase;
     font-weight: normal;
     letter-spacing: +2px;
     white-space: nowrap;
+    color: #ffffff;
 }
 .Logo:hover {
     cursor: pointer;
 }
-.Light {
+.Logo .Light {
     color: #ffffff;
 }
 .Dark {
