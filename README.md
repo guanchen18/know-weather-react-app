@@ -8,7 +8,6 @@ React.js project built with [OpenWeather API](https://openweathermap.org/api).
 ````
 git clone https://github.com/guanchen18/know-weather-react-app
 cd my-weather-app
-npm install dateformat
 npm install
 npm start
 ````
