@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
 import Weather from './components/Weather';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
 
 class App extends Component {
   state = {
@@ -14,6 +12,7 @@ class App extends Component {
     error: null,
     show: false
   }
+  
   searchBarHandler = (e) => {
     this.setState({
       searchBarInput: e.target.value
@@ -29,40 +28,39 @@ class App extends Component {
     // const country = e.target.elements.country.value;
     e.preventDefault();
     const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-    //const API_KEY='55a1d56d5d85066fcca6ebadd764adda'
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-    // const api_call = await fetch(`api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${Api_Key}`);
     const response = await api_call.json();
     console.log(response);
-    if(city){
+    if(response['message'] !== "city not found"){
       this.setState({
         temperature: response.main.temp,
         city: response.name,
         country: response.sys.country,
         humidity: response.main.humidity,
         description: response.weather[0].main,
-        error: "",
+        error: null,
       })
     } else {
+      console.log("City not found")
       this.setState({
-        error: "Please put correct names:("
+        error: "City not found"
       })
     }
   }
+    
   render(){
     return (
       <div>
-      <Header />
         <SearchBar handleClick={this.getWeather} showUpdate={this.showUpdate}/>
         <Weather 
           city = {this.state.city}
           country = {this.state.country}
+          error = {this.state.error}
           temperature = {this.state.temperature}
           description = {this.state.description}
           type = {this.state.description}
           show = {this.state.show}
-          />
-      <Footer />
+        />
       </div>  
     )
   }
