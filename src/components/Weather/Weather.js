@@ -1,13 +1,13 @@
 import React from 'react';
 import dateformat from 'dateformat';
 
-import Icon from '../elements/Icons/Icon';
+import Icon from '../../elements/Icons/Icon';
 
 import date from './Date.module.css';
-import weather from './Weather.module.css';
-import temperature from './Temperature.module.css';
 import description from './Description.module.css';
 import location from './Location.module.css';
+import temperature from './Temperature.module.css';
+import weather from './Weather.module.css';
 
 function Weather(props) {
     const today = new Date();

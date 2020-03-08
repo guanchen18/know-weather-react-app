@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
-import Weather from './components/Weather';
+import Weather from './components/Weather/Weather';
 
 class App extends Component {
   state = {
