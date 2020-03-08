@@ -5,8 +5,8 @@ import classes from './Icon.module.css';
 const Icon = (props) => {
     return(
         <img 
-            src={require(`../../assets/icon-imgs/${props.type}.svg`)} 
-            alt={props.type}
+            src={props.src}
+            alt={props.description}
             className={classes.Icon} />
     );
 }

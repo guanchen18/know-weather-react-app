@@ -6,7 +6,7 @@ import button from './Button.module.css';
 class SearchBar extends Component {
   componentDidMount() {
     var places = require('places.js');
-    var placesAutocomplete = places({
+    places({
       appId: process.env.ALGOLIA_APP_ID,
       apiKey: process.env.ALGOLIA_API_KEY,
       container: document.querySelector('#city')

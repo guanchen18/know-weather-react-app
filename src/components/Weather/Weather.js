@@ -12,12 +12,20 @@ import weather from './Weather.module.css';
 function Weather(props) {
     const today = new Date();
     if (props.show === true) {
-        if (props.error === null) {
+        if (props.error !== null) {
+            return(
+                <div>
+                    {props.error}
+                </div>
+            )
+        }
+        else {
+            var src = `http://openweathermap.org/img/wn/${props.iconID}@2x.png`
             return (
                 <div className={weather.WeatherDetailsWrappe}>
 
                     <div>
-                        <Icon type={props.description} /> 
+                        <Icon description={props.description} src={src}/> 
                     </div>
 
                     <div className={weather.WeatherDataWrapper}>
@@ -37,13 +45,6 @@ function Weather(props) {
                         </div> 
                     </div>
 
-                </div>
-            )
-        }
-        else {
-            return(
-                <div className="error">
-                    {props.error}
                 </div>
             )
         }
