@@ -10,6 +10,9 @@ class SearchBar extends Component {
       appId: process.env.ALGOLIA_APP_ID,
       apiKey: process.env.ALGOLIA_API_KEY,
       container: document.querySelector('#city')
+    }).configure({
+      type: 'city',
+      aroundLatLngViaIP: false,
     });
   }
 
