@@ -1,6 +1,6 @@
 .SearchBarWrapper {
     position: relative;
     width: 100%;
-    max-width: 280px;
+    max-width: 50%;
     margin: 3rem auto;
 }

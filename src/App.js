@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBar from './components/SearchBar';
+import SearchBar from './components/SearchBar/SearchBar';
 import Weather from './components/Weather';
 
 class App extends Component {
@@ -12,17 +12,7 @@ class App extends Component {
     error: null,
     show: false
   }
-  
-  searchBarHandler = (e) => {
-    this.setState({
-      searchBarInput: e.target.value
-    })
-  }
-  showUpdate = () => {
-    this.setState({
-      show: true
-    })
-  }
+
   getWeather = async (e) => {
     const city = e.target.elements.city.value;
     // const country = e.target.elements.country.value;
@@ -47,7 +37,17 @@ class App extends Component {
       })
     }
   }
-    
+  searchBarHandler = (e) => {
+    this.setState({
+      searchBarInput: e.target.value
+    })
+  }
+  showUpdate = () => {
+    this.setState({
+      show: true
+    })
+  }
+
   render(){
     return (
       <div>
