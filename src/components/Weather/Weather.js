@@ -14,7 +14,7 @@ function Weather(props) {
     if (props.show === true) {
         if (props.error !== null) {
             return(
-                <div>
+                <div className={weather.Error}>
                     {props.error}
                 </div>
             )
